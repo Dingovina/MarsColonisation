@@ -106,7 +106,7 @@ def astronaut_selection():
                             <div>
                                 <form class="login_form" method="post">
                                     <input type="about" class="form-control" id="surname" placeholder="Введите фамилию" name="surname">
-                                    <input type="about" class="form-control" id="name" placeholder="Введите имя" name="surname">
+                                    <input type="about" class="form-control" id="name" placeholder="Введите имя" name="name">
                                     <br>
                                     <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Введите адрес почты" name="email">
                                     <div class="form-group">
@@ -122,6 +122,12 @@ def astronaut_selection():
                                     <br>
                                     <div class="form-group">
                                         <label for="form-check" id="question">Какая у Вас профессия?</label>
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="radio" name="prof" id="no" checked>
+                                          <label class="form-check-label">
+                                            инженер-исследователь
+                                          </label>
+                                        </div>
                                         <div class="form-check">
                                           <input class="form-check-input" type="radio" name="prof" id="i-i">
                                           <label class="form-check-label">
@@ -197,12 +203,17 @@ def astronaut_selection():
                           </body>
                         </html>'''
     elif request.method == 'POST':
+        print(request.form)
         print(request.form['surname'])
         print(request.form['name'])
-        print(request.form['education'])
+        print(request.form['Education'])
+        print(request.form['sex'])
         print(request.form['file'])
         print(request.form['about'])
-        print(request.form.get('accept'))
+        if 'accept' in request.form:
+            print(request.form['accept'])
+        else:
+            print('NO')
         print(request.form['prof'])
         return "Форма отправлена"
 
