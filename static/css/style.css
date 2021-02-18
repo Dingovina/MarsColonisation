@@ -16,3 +16,8 @@ form.login_form {
 .bold {
     font-width: bolder;
 }
+#uncolored{
+    background-color: #ffffff;
+    border: 0px;
+    max-height: 10px;
+}
